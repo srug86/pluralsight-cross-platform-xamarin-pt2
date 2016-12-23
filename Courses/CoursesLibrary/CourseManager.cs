@@ -56,6 +56,11 @@ namespace CoursesLibrary
             return initCourses;
         }
 
+        public int Length
+        {
+            get { return _courses.Length; }
+        }
+
         public void MoveFirst()
         {
             _currentIndex = 0;
@@ -74,6 +79,19 @@ namespace CoursesLibrary
             if (CanMoveNext)
             {
                 ++_currentIndex;
+            }
+        }
+
+        public void MoveTo(int position)
+        {
+            if (position >= 0 && position <= _lastIndex)
+            {
+                _currentIndex = position;
+            }
+            else
+            {
+                throw new IndexOutOfRangeException(
+                    String.Format("{0} is an invalid position. Must be between 0 and {1}", position, _lastIndex));
             }
         }
 
