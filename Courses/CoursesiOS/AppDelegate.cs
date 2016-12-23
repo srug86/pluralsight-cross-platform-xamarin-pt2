@@ -10,17 +10,17 @@ namespace CoursesiOS
     [Register("AppDelegate")]
     public partial class AppDelegate : UIApplicationDelegate
     {
-        UIWindow window;
-		CourseViewController viewController;
+        private UIWindow _window;
+		private CoursePagerViewController _pagerViewController;
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            window = new UIWindow(UIScreen.MainScreen.Bounds);
+            _window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-			viewController = new CourseViewController();
-            window.RootViewController = viewController;
+			_pagerViewController = new CoursePagerViewController();
+            _window.RootViewController = _pagerViewController;
 
-            window.MakeKeyAndVisible();
+            _window.MakeKeyAndVisible();
 
             return true;
         }

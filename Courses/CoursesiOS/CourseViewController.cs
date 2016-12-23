@@ -8,7 +8,9 @@ namespace CoursesiOS
 {
     public partial class CourseViewController : UIViewController
     {
-        private CourseManager _courseManager;
+        public Course Course { get; set; }
+
+        public int CoursePosition { get; set; }
 
         public CourseViewController()
             : base("CourseViewController", null)
@@ -26,35 +28,18 @@ namespace CoursesiOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            buttonPrev.Hidden = true;
+            buttonNext.Hidden = true;
 
             // Perform any additional setup after loading the view, typically from a nib.
-            buttonPrev.TouchUpInside += ButtonPrev_TouchUpInside;
-            buttonNext.TouchUpInside += ButtonNext_TouchUpInside;
-
-            _courseManager = new CourseManager();
-            _courseManager.MoveFirst();
-            UpdateUI();
-        }
-
-        private void ButtonPrev_TouchUpInside(object sender, EventArgs e)
-        {
-            _courseManager.MovePrev();
-            UpdateUI();
-        }
-
-        private void ButtonNext_TouchUpInside(object sender, EventArgs e)
-        {
-            _courseManager.MoveNext();
             UpdateUI();
         }
 
         private void UpdateUI()
         {
-            labelTitle.Text = _courseManager.Current.Title;
-            textDescription.Text = _courseManager.Current.Description;
-            imageCourse.Image = UIImage.FromBundle(_courseManager.Current.Image);
-            buttonPrev.Enabled = _courseManager.CanMovePrev;
-            buttonNext.Enabled = _courseManager.CanMoveNext;
+            labelTitle.Text = Course.Title;
+            textDescription.Text = Course.Description;
+            imageCourse.Image = UIImage.FromBundle(Course.Image);
         }
     }
 }
