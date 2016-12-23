@@ -15,9 +15,13 @@ using Android.Support.V4.View;
 
 namespace CoursesAndroid
 {
-    [Activity(Label = "Courses", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Course Activity")]
     public class CourseActivity : FragmentActivity
     {
+        public const string DisplayCategoryTitleExtra = "DisplayCategoryTitleExtra";
+
+        private const string DefaultCategoryTitle = "Android";
+
         private CourseManager _courseManager;
         private CoursePagerAdapter _coursePagerAdapter;
         private ViewPager _viewPager;
@@ -29,7 +33,20 @@ namespace CoursesAndroid
             // Create your application here
             SetContentView(Resource.Layout.CourseActivity);
 
-            _courseManager = new CourseManager();
+            var displayCategoryTitle = DefaultCategoryTitle;
+
+            var startupIntent = this.Intent;
+            if (startupIntent != null)
+            {
+                var displayCategoryTitleExtra =
+                    startupIntent.GetStringExtra(DisplayCategoryTitleExtra);
+                if (displayCategoryTitle != null)
+                {
+                    displayCategoryTitle = displayCategoryTitleExtra;
+                }
+            }
+
+            _courseManager = new CourseManager(displayCategoryTitle);
             _courseManager.MoveFirst();
 
             _coursePagerAdapter = new CoursePagerAdapter(SupportFragmentManager, _courseManager);

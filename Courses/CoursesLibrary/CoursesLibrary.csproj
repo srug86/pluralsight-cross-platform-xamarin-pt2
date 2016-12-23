@@ -37,6 +37,8 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CourseCategory.cs" />
+    <Compile Include="CourseCategoryManager.cs" />
     <Compile Include="CourseManager.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

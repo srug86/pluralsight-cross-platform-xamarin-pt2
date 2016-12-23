@@ -15,8 +15,8 @@
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>5bfd30b8</NuGetPackageImportStamp>
   </PropertyGroup>
@@ -88,7 +88,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryActivity.cs" />
     <Compile Include="CourseActivity.cs" />
+    <Compile Include="CourseCategoryManagerAdapter.cs" />
     <Compile Include="CourseFragment.cs" />
     <Compile Include="CoursePagerAdapter.cs" />
     <Compile Include="ResourceHelper.cs" />
