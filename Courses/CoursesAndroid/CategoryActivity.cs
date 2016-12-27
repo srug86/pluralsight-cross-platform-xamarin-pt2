@@ -13,7 +13,6 @@ using CoursesLibrary;
 
 namespace CoursesAndroid
 {
-    [Activity(Label = "Courses", MainLauncher = true, Icon = "@drawable/icon")]
     public class CategoryActivity : ListActivity
     {
         private CourseCategoryManager _courseCategoryManager;

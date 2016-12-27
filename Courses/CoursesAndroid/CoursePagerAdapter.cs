@@ -23,6 +23,20 @@ namespace CoursesAndroid
             _courseManager = courseManager;
         }
 
+        public override int Count
+        {
+            get { return _courseManager.Length; }
+        }
+
+        public CourseManager CourseManager
+        {
+            set
+            {
+                _courseManager = value;
+                NotifyDataSetChanged();
+            }
+        }
+
         public override Android.Support.V4.App.Fragment GetItem(int position)
         {
             _courseManager.MoveTo(position);
@@ -32,9 +46,9 @@ namespace CoursesAndroid
             return courseFragment;
         }
 
-        public override int Count
+        public override int GetItemPosition(Java.Lang.Object @object)
         {
-            get { return _courseManager.Length; }
+            return PositionNone;
         }
     }
 }
