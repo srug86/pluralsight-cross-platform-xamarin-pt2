@@ -28,8 +28,6 @@ namespace CoursesiOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            buttonPrev.Hidden = true;
-            buttonNext.Hidden = true;
 
             // Perform any additional setup after loading the view, typically from a nib.
             UpdateUI();

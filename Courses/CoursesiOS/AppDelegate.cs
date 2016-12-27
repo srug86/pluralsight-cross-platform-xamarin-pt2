@@ -11,14 +11,19 @@ namespace CoursesiOS
     public partial class AppDelegate : UIApplicationDelegate
     {
         private UIWindow _window;
-		private CoursePagerViewController _pagerViewController;
+
+        public UINavigationController RootNavigationController { get; private set; }
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             _window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-			_pagerViewController = new CoursePagerViewController();
-            _window.RootViewController = _pagerViewController;
+            RootNavigationController = new UINavigationController();
+
+			var categoryViewController = new CoursePagerViewController();
+            RootNavigationController.PushViewController(categoryViewController, false);
+
+            _window.RootViewController = RootNavigationController;
 
             _window.MakeKeyAndVisible();
 

@@ -12,9 +12,11 @@ namespace CoursesiOS
     {
         private UIPageViewController _pageViewController;
         private CourseManager _courseManager;
+        private string _categoryTitle;
 
-        public CoursePagerViewController()
+        public CoursePagerViewController(string categoryTitle)
         {
+            _categoryTitle = categoryTitle;
         }
 
         public override void DidReceiveMemoryWarning()
@@ -43,7 +45,7 @@ namespace CoursesiOS
             _pageViewController.View.Frame = View.Bounds;
             View.AddSubview(_pageViewController.View);
 
-            _courseManager = new CourseManager();
+            _courseManager = new CourseManager(_categoryTitle);
             _courseManager.MoveFirst();
 
             var dataSource = new CoursePagerViewControllerDataSource(_courseManager);
